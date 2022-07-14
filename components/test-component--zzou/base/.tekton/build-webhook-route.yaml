@@ -1,0 +1,22 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    build.appstudio.openshift.io/application: test-app-oreb
+    build.appstudio.openshift.io/build: "true"
+    build.appstudio.openshift.io/component: test-component--zzou
+    build.appstudio.openshift.io/type: build
+    build.appstudio.openshift.io/version: "0.1"
+    pipelines.appstudio.openshift.io/type: build
+  creationTimestamp: null
+  name: eltest-component--zzou
+  namespace: appstudio-e2e-test
+spec:
+  path: /
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: el-test-component--zzou
+    weight: null
+status: {}
